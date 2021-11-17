@@ -36,6 +36,6 @@ You can change the parameters of the simulation by changing the [Parameters.txt]
 *   **BoxX:** *x* length of the box.
 *   **BoxY:** *y* length of the box.
 
-Maintain the dimensions of the box in a way that the atomic packing factor doesn't go over *0.7*^[1].
+Maintain the dimensions of the box in a way that the atomic packing factor doesn't go over *0.7*.[^1]
 
-^[1]: Consult [this article](https://en.wikipedia.org/wiki/Atomic_packing_factor) for more information on *APF*.
+[^1]: Consult [this article](https://en.wikipedia.org/wiki/Atomic_packing_factor) for more information on *APF*.
