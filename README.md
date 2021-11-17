@@ -11,7 +11,7 @@ git clone
 Then go to the project folder and follow the execution instructions.
 
 ```
-cd Particles_in_a_box
+cd PyColloid
 ```
 
 Make sure you are working with the provided ``virtualenv`` activated. For that, type:
