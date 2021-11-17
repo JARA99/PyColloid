@@ -1,7 +1,7 @@
 #-----------------------------------------------------------------------------------------#
 #----------------------------------   Initial Values   -----------------------------------#
 #-----------------------------------------------------------------------------------------#
-#   Date: 09/2021                                                                         #
+#   Date: 11/2021                                                                         #
 #   File: InitialValues.py                                                                         #
 #-----------------------------------------------------------------------------------------#
 
@@ -25,10 +25,10 @@ import csv
 
 def seed_LowAPF(n_particles,rx_max,ry_max):
     '''
-    Create a output.csv file and prints on it the first bloc of data with n random particles.
+    Create a output.csv file and prints on it the first block of data with n random particles.
     '''
 
 def seed_HighAPF(n_partilces):
     '''
-    Create a output.csv file and prints on it the first bloc of data, by deleting m random particles from the ideal scenario.
+    Create a output.csv file and prints on it the first block of data, by deleting m random particles from the ideal scenario.
     '''
