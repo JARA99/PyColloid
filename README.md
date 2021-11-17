@@ -20,3 +20,8 @@ Make sure you are working with the provided ``virtualenv`` activated. For that, 
 source venv-simulation/bin/activate
 ```
 
+For executing the simulation just execute the shell script ``RUN.sh`` by typing:
+
+```
+./RUN.sh
+```
