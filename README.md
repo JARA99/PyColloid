@@ -1,5 +1,16 @@
 #   Particles in a box
 
+##  To Do
+
+- [ ] Program [InitialValues.py](src/InitialValues.py)
+- [ ] Program [TemporalEvolution.py](src/TemporalEvolution.py)
+- [ ] Program [CollisionDetector.py](src/CollisionDetector.py)
+- [x] Program [CollisionDynamics.py](src/CollisionDynamics.py)
+- [ ] Program [main.py](src/main.py)
+- [x] Program the plotter base
+- [ ] Finish the plotter  
+
+
 ##  Usage
 
 Open a new terminal on the installation directory of your choice, then clone the repository using:
