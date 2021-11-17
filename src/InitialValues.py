@@ -23,12 +23,12 @@ import csv
 #-----------------------------------------------------------------------------------------#
 
 
-def seed_LowAPF(n_particles,rx_max,ry_max):
+def seed_LowAPF(n_particles,mass,charge,radius,Box_x,Box_y):
     '''
     Create a output.csv file and prints on it the first block of data with n random particles.
     '''
 
-def seed_HighAPF(n_partilces):
+def seed_HighAPF(n_partilces,mass,charge,radius,Box_x,Box_y):
     '''
     Create a output.csv file and prints on it the first block of data, by deleting m random particles from the ideal scenario.
     '''
