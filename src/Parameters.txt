@@ -1,0 +1,7 @@
+Case: HighAPF
+Particles: 10
+Mass: 1
+Charge: 1
+Radius: 1
+BoxX: 20
+BoxY: 20
