@@ -23,7 +23,5 @@ import CollisionDynamics
 #                                          Code                                           #
 #-----------------------------------------------------------------------------------------#
 
-def detectCollisions(n_particles):
-    '''
-    Reads the last block of data and corrects the superpositions.
-    '''
+def detectCollisions(Lista_in,Lista_out):
+    
