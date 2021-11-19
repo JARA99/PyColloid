@@ -23,5 +23,8 @@ import CollisionDynamics
 #                                          Code                                           #
 #-----------------------------------------------------------------------------------------#
 
-def detectCollisions(Lista_in,Lista_out):
-    
+def detect(Lista,Lista_out,N,delta):
+    for ide1 in range(N):
+        for ide2 in range(ide1):            # Se compara hasta ide1 para evitar que se repita el análisis de choque
+            if abs(Lista[ide1].rx-Lista[ide2].rx)<delta and abs(Lista[ide1].ry-Lista[ide2].ry)<delta :
+                Lista_out.append([Lista[ide1].ID,Lista[ide2].ID])
