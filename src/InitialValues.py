@@ -58,7 +58,7 @@ def ini_values(i,m,q,r,x,y,vx,vy,ax,ay,Lista):   # Función para asignar valores
 
 def export(Lista,nombre,N):   # Función para crear un archivo .csv con toda la información de las particulas dadas
     a = str(nombre)+'.csv'
-    f = open(a, 'w')
+    f = open(a, 'w', newline='')
     w = csv.writer(f)
     w.writerow(["Id", "m", "q","radius","rx","ry","vx","vy","ax","ay"])  # Encabezado
     w.writerow([])
