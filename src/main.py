@@ -12,16 +12,16 @@
 
 import InitialValues as iv
 import TemporalEvolution
-import CollisionDetector
+import CollisionDetector as cdet
 import CollisionDynamics
 
 #-----------------------------------------------------------------------------------------#
 #                                    Global Variables                                     #
 #-----------------------------------------------------------------------------------------#
-Nombre='particulas'     # Nombre del archivo donde se exportan los datos
+Nombre='output'         # Nombre del archivo donde se exportan los datos
 
 # Rango entre el cual se asignará valores aleatorios a cada característica de la partícula
-# i.e. r_m=[0,5] -> todas las partículas tendran un radio aleatorio entre 0 y 5 U
+# i.e. r_m=[0,5] -> todas las partículas tendran una masa aleatoria entre 0 y 5 U
 
 r_m =[0,1]              # rango masa
 r_x =[0,1]              # rango posición x
@@ -35,6 +35,9 @@ r_q =[0,1]              # rango carga
 Coloides=[]             # Lista para almacenar todas las partículas
 
 N=10                    # Cantidad de partículas a considerar
+delta_c=0.2             # diferencia dentro de la cual se considera como choque
+
+Chocando=[]
 
 #-----------------------------------------------------------------------------------------#
 #                                          Code                                           #
@@ -43,4 +46,11 @@ N=10                    # Cantidad de partículas a considerar
 for i in range(N):      # Crear N partículas
     iv.ini_values(i,r_m,r_x,r_y,r_vx,r_vy,r_ax,r_ay,r_q, Coloides)
 
-iv.export(Coloides,Nombre,1,N)    # Exportar archivo con todos los datos
+iv.export(Coloides,Nombre,N)    # Exportar archivo con todos los datos
+
+cdet.detect(Coloides,Chocando,N,delta_c)      # Se recorre todas las partículas para saber cuales están superpuestas
+print("delta=",delta_c)
+print(Chocando)
+
+for a in Coloides:             # Se recorre la lista creada para observar determinadas características
+  print("ID=",a.ID,"rx=",a.rx,"ry=",a.ry)
