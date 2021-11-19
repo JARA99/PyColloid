@@ -46,14 +46,14 @@ class coloide:  # Clase para las partículas
 #-----------------------------------------------------------------------------------------#
 
 def ini_values(i,m,q,r,x,y,vx,vy,ax,ay,Lista):   # Función para asignar valores random en un rango dado
-    mas= rd.uniform(m[0],m[1])
-    car= rd.uniform(q[0],q[1])
-    rx = rd.uniform(x[0],x[1])
-    ry = rd.uniform(y[0],y[1])
-    vx = rd.uniform(vx[0],vx[1])
-    vy = rd.uniform(vy[0],vy[1])
-    ax = rd.uniform(ax[0],ax[1])
-    ay = rd.uniform(ay[0],ay[1])
+    mas= round(rd.uniform(m[0],m[1]),2)
+    car= round(rd.uniform(q[0],q[1]),2)
+    rx = round(rd.uniform(x[0],x[1]),2)
+    ry = round(rd.uniform(y[0],y[1]),2)
+    vx = round(rd.uniform(vx[0],vx[1]),2)
+    vy = round(rd.uniform(vy[0],vy[1]),2)
+    ax = round(rd.uniform(ax[0],ax[1]),2)
+    ay = round(rd.uniform(ay[0],ay[1]),2)
     Lista.append(coloide(i, mas, car, r, rx, ry, vx, vy, ax, ay))
 
 def export(Lista,nombre,N):   # Función para crear un archivo .csv con toda la información de las particulas dadas
