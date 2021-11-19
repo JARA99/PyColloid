@@ -10,11 +10,12 @@
 - [x] Program the plotter base
 - [ ] Finish the plotter  
 
+Fork the repository for collaboration, then send your pull requests.
 
 ##  Usage
 
 Open a new terminal on the installation directory of your choice, then clone the repository using:
-
+ 
 ```
 git clone
 ```
