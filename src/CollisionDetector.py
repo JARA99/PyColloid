@@ -29,4 +29,4 @@ def detect(Lista,Lista_out,N,delta):
             if abs(Lista[ide1].rx-Lista[ide2].rx)<delta and abs(Lista[ide1].ry-Lista[ide2].ry)<delta :
                 Lista_out.append([Lista[ide1].ID,Lista[ide2].ID])
                 # en vez de hacer un append se puede sustituir por la función que corrige las direcciones después del choque
-                # break
+                # y se detiene una vez detecte al primer par de particulas colisionando
