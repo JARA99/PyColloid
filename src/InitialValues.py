@@ -55,7 +55,7 @@ def ini_values(i,m,q,x,y,vx,vy,ax,ay,Lista):   # Función para asignar valores r
     ay = rd.uniform(ay[0],ay[1])
     Lista.append(coloide(i, mas, car, rx, ry, vx, vy, ax, ay))
 
-def export(Lista,nombre,N,i):     # Función para exportar los datos en formato csv
+def export(Lista,nombre,i,N):   # Función para crear un archivo .csv con toda la información de las particulas dadas
     a = str(nombre) +'_'+ str(i) +'.csv'
     f = open(a, 'w')
     w = csv.writer(f)

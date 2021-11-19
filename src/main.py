@@ -10,7 +10,7 @@
 #                                        Packages                                         #
 #-----------------------------------------------------------------------------------------#
 
-import InitialValues as IV
+import InitialValues as iv
 import TemporalEvolution
 import CollisionDetector
 import CollisionDynamics
@@ -41,6 +41,6 @@ N=10                    # Cantidad de partículas a considerar
 #-----------------------------------------------------------------------------------------#
 
 for i in range(N):      # Crear N partículas
-    IV.ini_values(i,r_m,r_x,r_y,r_vx,r_vy,r_ax,r_ay,r_q, Coloides)
+    iv.ini_values(i,r_m,r_x,r_y,r_vx,r_vy,r_ax,r_ay,r_q, Coloides)
 
-IV.export(Coloides,Nombre,N,1)    # Exportar archivo con todos los datos
+iv.export(Coloides,Nombre,1,N)    # Exportar archivo con todos los datos
