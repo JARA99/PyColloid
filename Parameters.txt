@@ -11,7 +11,7 @@ MaxY: 0.8
 MaxV: 2
 MinV: -2
 ForceConstant: 1
-DeltaTime: 0.0015
+DeltaTime: 0.001
 Iterations: 100
 CollisionLoops: 30
 Palette: viridis
