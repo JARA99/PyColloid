@@ -33,8 +33,8 @@ r_q =[-1,1]             # rango carga
 r_r =[0.04,0.06]        # rango del radio
 r_x =[0,0.7]            # rango posición x
 r_y =[0,0.6]            # rango posición y
-r_vx=[-10,10]             # rango velocidad x
-r_vy=[-10,10]             # rango velocidad y
+r_vx=[0,0]             # rango velocidad x
+r_vy=[0,0]             # rango velocidad y
 r_ax=[0,0]              # rango aceleración x
 r_ay=[0,0]              # rango aceleración y
 
@@ -62,6 +62,10 @@ with open('../Parameters.txt','r') as file:
     MinX = 0
     MaxY = float(file.readline().replace('MaxY: ',''))
     MinY = 0
+    MaxVx = float(file.readline().replace('MaxVx: ',''))
+    MinVx = float(file.readline().replace('MinVx: ',''))
+    MaxVy = float(file.readline().replace('MaxVy: ',''))
+    MinVy = float(file.readline().replace('MinVy: ',''))
     ForceConstant = float(file.readline().replace('ForceConstant: ',''))
     DeltaTime = float(file.readline().replace('DeltaTime: ',''))
     Iterations = int(file.readline().replace('Iterations: ',''))
@@ -81,6 +85,8 @@ r_q =[MinCharge,MaxCharge]    # rango carga
 r_r =[MinRadius,MaxRadius]    # rango del radio
 r_x =[MinX,MaxX]              # rango posición x
 r_y =[MinY,MaxY]              # rango posición y
+r_vx=[MinVx,MaxVx]             # rango velocidad x
+r_vy=[MinVy,MaxVy]             # rango velocidad y
 
 cicles = Iterations
 
@@ -88,7 +94,7 @@ cicles = Iterations
 #                                          Code                                           #
 #-----------------------------------------------------------------------------------------#
 
-Particle_Area = pi*((MaxRadius+MinRadius)/2)**2
+Particle_Area = pi*(MaxRadius)**2
 Apf_per_particle = Particle_Area/(MaxX*MaxY)
 
 if Apf > 0:
