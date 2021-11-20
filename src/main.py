@@ -59,9 +59,10 @@ with open('Parameters.txt','r') as file:
     MinX = 0
     MaxY = float(file.readline().replace('MaxY: ',''))
     MinY = 0
+    ForceConstant = float(file.readline().replace('ForceConstant: ',''))
     DeltaTime = float(file.readline().replace('DeltaTime: ',''))
     Iterations = int(file.readline().replace('Iterations: ',''))
-    ColisionLoops = float(file.readline().replace('ColisionLoops: ',''))
+    CollisionLoops = float(file.readline().replace('CollisionLoops: ',''))
     file.close()
 
 N = Particles
@@ -106,8 +107,8 @@ actual_block = []
 
 for cicle in range(cicles):
   actual_block = dh.getLastBlock(N)
-  tevo.motion(actual_block,DeltaTime)
-  cdet.collisions(actual_block,r_x[1],r_y[1],ColisionLoops)
+  tevo.motion(actual_block,DeltaTime,ForceConstant)
+  cdet.collisions(actual_block,r_x[1],r_y[1],CollisionLoops)
   dh.putActualBlock(actual_block)
 
 
