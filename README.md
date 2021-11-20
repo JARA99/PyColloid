@@ -18,13 +18,19 @@ Then go to the project folder and follow the execution instructions.
 cd PyColloid
 ```
 
+You can use the virtualenv provided by doing:
+
+```
+source venv-simulation/bin/activate
+```
+
 For executing the simulation just execute the shell script ``RUN.sh`` by typing:
 
 ```
 ./RUN.sh
 ```
 
-You can change the parameters of the simulation by changing the [Parameters.txt](src/Parameters.txt) file. This file its by itself very self-explanatory but here is a bit of documentation:
+You can change the parameters of the simulation by changing the [Parameters.txt](Parameters.txt) file. This file its by itself very self-explanatory but here is a bit of documentation:
 
 *   **Case:** Select the method of sorting the initial state by choosing the scenario *HighAPF* (high atomic packing factor), or *LowAPF* (low atomic packing factor).
 *   **APF:** Set a fixed APF, this will rewrite the number of particles, you can turn it off by tying -1.
