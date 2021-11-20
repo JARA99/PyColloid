@@ -1,17 +1,5 @@
 #   Particles in a box
 
-##  To Do
-
-- [ ] Program [InitialValues.py](src/InitialValues.py)
-- [ ] Program [TemporalEvolution.py](src/TemporalEvolution.py)
-- [ ] Program [CollisionDetector.py](src/CollisionDetector.py)
-- [x] Program [CollisionDynamics.py](src/CollisionDynamics.py)
-- [ ] Program [main.py](src/main.py)
-- [x] Program the plotter base
-- [ ] Finish the plotter  
-
-Fork the repository for collaboration, then send your pull requests.
-
 ##  Usage
 
 Open a new terminal on the installation directory of your choice, then clone the repository using:
@@ -24,12 +12,6 @@ Then go to the project folder and follow the execution instructions.
 
 ```
 cd PyColloid
-```
-
-Make sure you are working with the provided ``virtualenv`` activated. For that, type:
-
-```
-source venv-simulation/bin/activate
 ```
 
 For executing the simulation just execute the shell script ``RUN.sh`` by typing:
@@ -51,3 +33,17 @@ You can change the parameters of the simulation by changing the [Parameters.txt]
 Maintain the dimensions of the box in a way that the atomic packing factor doesn't go over *0.7*.[^1]
 
 [^1]: Consult [this article](https://en.wikipedia.org/wiki/Atomic_packing_factor) for more information on *APF*.
+
+
+
+##  To Do
+
+- [ ] Program [InitialValues.py](src/InitialValues.py)
+- [x] Program [TemporalEvolution.py](src/TemporalEvolution.py)
+- [x] Program [CollisionDetector.py](src/CollisionDetector.py)
+- [x] Program [CollisionDynamics.py](src/CollisionDynamics.py)
+- [x] Program [main.py](src/main.py)
+- [x] Program the plotter base
+- [x] Finish the plotter  
+
+Fork the repository for collaboration, then send your pull requests.

@@ -12,7 +12,7 @@ set yrange [0:0.8]
 set grid
 # unset tics
 
-do for [i=1:int(STATS_blank)] {
+do for [i=2:int(STATS_blank)] {
     plot 'output.csv' every :::i::i using 5:6:4:3 with circles fs solid lc palette
 }
 
@@ -25,7 +25,7 @@ set multiplot layout 1,2
 # set size 0.5,0.5
 # set origin 0,0
 set title 'Distribución inicial'
-plot 'output.csv' every :::1::1 using 5:6:4:3 with circles fs solid lc palette #t 'Start'
+plot 'output.csv' every :::2::2 using 5:6:4:3 with circles fs solid lc palette #t 'Start'
 
 # set size 0.5,0.5
 # set origin 0.5,0
