@@ -3,8 +3,8 @@ Particles: 10
 Mass: 1
 MaxCharge: 1
 MinCharge: -1
-MaxRadius: 0.06
-MinRadius: 0.04
+MaxRadius: 0.08
+MinRadius: 0.02
 MaxX: 0.8
 MaxY: 0.8
 ForceConstant: 1
