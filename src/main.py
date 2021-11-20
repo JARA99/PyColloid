@@ -11,9 +11,10 @@
 #-----------------------------------------------------------------------------------------#
 
 import InitialValues as iv
-import TemporalEvolution
+import TemporalEvolution as tevo
 import CollisionDetector as cdet
 import CollisionDynamics
+import DataHandle as dh
 
 #-----------------------------------------------------------------------------------------#
 #                                    Global Variables                                     #
@@ -54,3 +55,17 @@ print(Chocando)
 
 for a in Coloides:             # Se recorre la lista creada para observar determinadas características
   print("ID=",a.ID,"rx=",a.rx,"ry=",a.ry)
+
+
+##  Probando funcionalidad de evolucion temporal
+
+block = dh.getLastBlock(N)        # Guarda el ultimo bloque en una lista
+
+print(block)                   # Imprime
+print('\n\n')
+
+newblock = tevo.motion(block)     # Aplica la evolucion temporal y guarda este bloque en otra lista
+
+print(block)                   # Imprime
+print('\n\n')
+print(newblock)
