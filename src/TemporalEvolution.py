@@ -53,8 +53,8 @@ def motion(data_block,dt,k):
         dy = y2-y1
         d = (dx**2+dy**2)**(1/2)
 
-        if d < 0.00000000001:
-            d = 0.0001
+        if d < 1e-15:
+            d = 1e-15
 
         unit_x = dx/d
         unit_y = dy/d

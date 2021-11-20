@@ -1,5 +1,5 @@
 reset
-set terminal gif enhanced font Arial 12 animate delay 15 size 640,640 
+set terminal gif enhanced font Arial 12 animate delay 15 size 750,640 
 set datafile separator ","
 set output '../output/output.gif'
 
@@ -13,10 +13,10 @@ set grid
 # unset tics
 
 do for [i=1:int(STATS_blank)] {
-    plot 'output.csv' every :::i::i using 5:6:4 with circles
+    plot 'output.csv' every :::i::i using 5:6:4:3 with circles fs solid lc palette
 }
 
-set terminal png enhanced   font Arial 12 size 880,440
+set terminal png enhanced   font Arial 12 size 1000,440
 set output '../output/output.png'
 
 set multiplot layout 1,2
@@ -25,10 +25,10 @@ set multiplot layout 1,2
 # set size 0.5,0.5
 # set origin 0,0
 set title 'Distribución inicial'
-plot 'output.csv' every :::1::1 using 5:6 with circles #t 'Start'
+plot 'output.csv' every :::1::1 using 5:6:4:3 with circles fs solid lc palette #t 'Start'
 
 # set size 0.5,0.5
 # set origin 0.5,0
 set title 'Distribución final'
-plot 'output.csv' every :::int(STATS_blank)::int(STATS_blank) using 5:6 with circles #t 'Stop'
+plot 'output.csv' every :::int(STATS_blank)::int(STATS_blank) using 5:6:4:3 with circles fs solid lc palette #t 'Stop'
 unset multiplot

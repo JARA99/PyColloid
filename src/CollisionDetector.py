@@ -62,8 +62,8 @@ def collisions(data_block, xborder, yborder,max_cicles):
         dy = y2-y1
         d = (dx**2+dy**2)**(1/2)
 
-        if d < 0.00000000001:
-            d = 0.0001
+        if d < 1e-15:
+            d = 1e-15
 
 
         # print(dx)
