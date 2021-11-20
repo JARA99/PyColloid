@@ -45,7 +45,7 @@ def detect(Lista,Lista_out,N,delta):
                 # y se detiene una vez detecte al primer par de particulas colisionando
 
 
-def collisions(data_block):
+def collisions(data_block, xborder, yborder):
     n_particles = len(data_block)
     # last_data_block = data_block.copy()
 
@@ -76,8 +76,34 @@ def collisions(data_block):
     ###########################################################################################
 
     for particle in range(n_particles):
+
+        radius = float(data_block[particle][radius_column])
+        x_max = xborder - radius
+        y_max = yborder - radius
+        x_min = radius
+        y_min = radius
+
+        prt_x = float(data_block[particle][x_column])
+        prt_y = float(data_block[particle][y_column])
+
+        if prt_x > x_max:
+            velocity_unchanged[particle] = False
+            data_block[particle][vx_column] = -float(data_block[particle][vx_column])
+
+        if prt_y > y_max:
+            velocity_unchanged[particle] = False
+            data_block[particle][vy_column] = -float(data_block[particle][vy_column])
+
+        if prt_x < x_min:
+            velocity_unchanged[particle] = False
+            data_block[particle][vx_column] = -float(data_block[particle][vx_column])
+
+        if prt_y < y_min:
+            velocity_unchanged[particle] = False
+            data_block[particle][vy_column] = -float(data_block[particle][vy_column])
+        
+
         if velocity_unchanged[particle]:
-            radius = float(data_block[particle][radius_column])
 
             for i in range(n_particles):
                 if i != particle:
@@ -103,7 +129,13 @@ def collisions(data_block):
     ###########################################################################################
 
     for particle in range(n_particles):
+
         radius = float(data_block[particle][radius_column])
+        x_max = xborder - radius
+        y_max = yborder - radius
+        x_min = radius
+        y_min = radius
+
 
         check = True
         checks = 0
@@ -127,6 +159,25 @@ def collisions(data_block):
 
                         data_block[particle][x_column] = float(data_block[particle][x_column]) + move_x
                         data_block[particle][y_column] = float(data_block[particle][y_column]) + move_y
+
+                    prt_x = float(data_block[particle][x_column])
+                    prt_y = float(data_block[particle][y_column])
+
+                    if prt_x > x_max:
+                        move = (prt_x - x_max) + margin
+                        data_block[particle][x_column] = prt_x - move
+
+                    if prt_y > y_max:
+                        move = (prt_y - y_max) + margin
+                        data_block[particle][y_column] = prt_y - move
+
+                    if prt_x < x_min:
+                        move = (x_min - prt_x) + margin
+                        data_block[particle][x_column] = prt_x + move
+
+                    if prt_y < y_min:
+                        move = (y_min - prt_y) + margin
+                        data_block[particle][y_column] = prt_y + move
             
             if checks > max_cicles:
                 print('This particle has too many collisions')

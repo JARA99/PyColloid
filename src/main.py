@@ -76,7 +76,7 @@ actual_block = []
 for cicle in range(cicles):
   actual_block = dh.getLastBlock(N)
   tevo.motion(actual_block)
-  cdet.collisions(actual_block)
+  cdet.collisions(actual_block,r_x[1],r_y[1])
   dh.putActualBlock(actual_block)
 
 
