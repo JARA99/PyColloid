@@ -12,11 +12,13 @@
 
 import csv
 import random as rd     # Librería para generar números aleatorios
+import math
 
 #-----------------------------------------------------------------------------------------#
 #                                    Global Variables                                     #
 #-----------------------------------------------------------------------------------------#
 
+margin = 0
 
 #-----------------------------------------------------------------------------------------#
 #                                          Code                                           #
@@ -45,7 +47,7 @@ class coloide:  # Clase para las partículas
 #                                        Functions                                        #
 #-----------------------------------------------------------------------------------------#
 
-def ini_values(i,m,q,r,x,y,vx,vy,ax,ay,Lista):   # Función para asignar valores random en un rango dado
+def LowAPF(i,m,q,r,x,y,vx,vy,ax,ay,Lista):   # Función para asignar valores random en un rango dado
     mas= round(rd.uniform(m[0],m[1]),2)
     car= round(rd.uniform(q[0],q[1]),2)
     r  = round(rd.uniform(r[0],r[1]),2)
@@ -68,3 +70,60 @@ def export(Lista,nombre,N):   # Función para crear un archivo .csv con toda la 
              Lista[ide].rx,Lista[ide].ry,Lista[ide].vx,Lista[ide].vy,Lista[ide].ax,Lista[ide].ay]
         w.writerow(col)
     f.close()
+
+
+def HighAPF(n_particles,r_m,r_q,r_r,r_x,r_y,r_vx,r_vy,r_ax,r_ay):
+    '''Creates output.csv file with initial values for high atomic packing number.'''
+    
+    radius = r_r[1] + margin
+    x_max = r_x[1]
+    y_max = r_y[1]
+
+
+    lines = math.floor(x_max/(2*radius))
+    cols = math.floor(y_max/(2*radius))
+
+    if n_particles > lines*cols:
+        print('Too many particles')
+        return
+
+    points = []
+
+    for line in range(lines):
+        for col in range(cols):
+            x_coord = (line*2*radius) + radius
+            y_coord = (col*2*radius) + radius
+            points.append([x_coord,y_coord])
+
+    while len(points) > n_particles:
+        remove_point = rd.randint(0,len(points)-1)
+        # print(remove_point)
+        points.pop(remove_point)
+    
+    # print(points)
+
+    particles = []
+
+    for particle in range(n_particles):
+        mass= round(rd.uniform(r_m[0],r_m[1]),2)
+        charge = round(rd.uniform(r_q[0],r_q[1]),2)
+        rad  = round(rd.uniform(r_r[0],r_r[1]),2)
+        rx = points[particle][0]
+        ry = points[particle][1]
+        vx = round(rd.uniform(r_vx[0],r_vx[1]),2)
+        vy = round(rd.uniform(r_vy[0],r_vy[1]),2)
+        ax = round(rd.uniform(r_ax[0],r_ax[1]),2)
+        ay = round(rd.uniform(r_ay[0],r_ay[1]),2)
+        particles.append([particle, mass, charge, rad, rx, ry, vx, vy, ax, ay])
+
+    with open('output.csv','w',newline='') as file:
+        data = csv.writer(file)
+        data.writerow(["Id", "m", "q","radius","rx","ry","vx","vy","ax","ay"])
+        data.writerow([])
+        data.writerows(particles)
+        data.writerow([])
+        data.writerows(particles)
+        file.close()
+
+    # print(particles)
+    

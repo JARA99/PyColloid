@@ -10,6 +10,7 @@
 #                                        Packages                                         #
 #-----------------------------------------------------------------------------------------#
 
+from math import pi
 import InitialValues as iv
 import TemporalEvolution as tevo
 import CollisionDetector as cdet
@@ -49,6 +50,7 @@ Chocando=[]
 
 with open('Parameters.txt','r') as file:
     Case = file.readline().replace('Case: ','').replace('\n','')
+    Apf = float(file.readline().replace('APF: ',''))
     Particles = int(file.readline().replace('Particles: ',''))
     Mass = float(file.readline().replace('Mass: ',''))
     MaxCharge = float(file.readline().replace('MaxCharge: ',''))
@@ -63,6 +65,8 @@ with open('Parameters.txt','r') as file:
     DeltaTime = float(file.readline().replace('DeltaTime: ',''))
     Iterations = int(file.readline().replace('Iterations: ',''))
     CollisionLoops = float(file.readline().replace('CollisionLoops: ',''))
+    Palette = file.readline().replace('Palette: ','').replace('\n','')
+    Invert = bool(file.readline().replace('Invert: ',''))
     file.close()
 
 N = Particles
@@ -78,6 +82,14 @@ cicles = Iterations
 #                                          Code                                           #
 #-----------------------------------------------------------------------------------------#
 
+Particle_Area = pi*((MaxRadius+MinRadius)/2)**2
+Apf_per_particle = Particle_Area/(MaxX*MaxY)
+
+if Apf > 0:
+  N = int(Apf/Apf_per_particle)
+  print('Automatic particle number based on APF: ',N)
+
+
 # print(Case)
 
 if Case == 'LowAPF':
@@ -85,7 +97,7 @@ if Case == 'LowAPF':
   print('Case: LowAPF')
 
   for i in range(N):      # Crear N partículas
-      iv.ini_values(i,r_m,r_q,r_r,r_x,r_y,r_vx,r_vy,r_ax,r_ay, Coloides)
+      iv.LowAPF(i,r_m,r_q,r_r,r_x,r_y,r_vx,r_vy,r_ax,r_ay, Coloides)
 
   iv.export(Coloides,Nombre,N)    # Exportar archivo con todos los datos
 
@@ -97,6 +109,11 @@ if Case == 'LowAPF':
 
 elif Case == 'HighAPF':
     print('Case: HighAPF')
+    cicles -= 1
+
+    iv.HighAPF(N,r_m,r_q,r_r,r_x,r_y,r_vx,r_vy,r_ax,r_ay)
+
+    # iv.export(Coloides,Nombre,N)
 
 else:
   print('Possible cases are: HighAPF or LowAPF')
