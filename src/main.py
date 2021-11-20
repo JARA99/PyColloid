@@ -27,8 +27,8 @@ cicles = 100
 # i.e. r_m=[0,5] -> todas las partículas tendran una masa aleatoria entre 0 y 5 U
 
 r_m =[0,1]              # rango masa
-r_x =[0,1]              # rango posición x
-r_y =[0,1]              # rango posición y
+r_x =[0,0.7]              # rango posición x
+r_y =[0,0.7]              # rango posición y
 r_vx=[0,1]              # rango velocidad x
 r_vy=[0,1]              # rango velocidad y
 r_ax=[0,1]              # rango aceleración x

@@ -160,24 +160,24 @@ def collisions(data_block, xborder, yborder):
                         data_block[particle][x_column] = float(data_block[particle][x_column]) + move_x
                         data_block[particle][y_column] = float(data_block[particle][y_column]) + move_y
 
-                    prt_x = float(data_block[particle][x_column])
-                    prt_y = float(data_block[particle][y_column])
+            prt_x = float(data_block[particle][x_column])
+            prt_y = float(data_block[particle][y_column])
 
-                    if prt_x > x_max:
-                        move = (prt_x - x_max) + margin
-                        data_block[particle][x_column] = prt_x - move
+            if prt_x > x_max:
+                move = (prt_x - x_max) + margin
+                data_block[particle][x_column] = prt_x - move
 
-                    if prt_y > y_max:
-                        move = (prt_y - y_max) + margin
-                        data_block[particle][y_column] = prt_y - move
+            if prt_y > y_max:
+                move = (prt_y - y_max) + margin
+                data_block[particle][y_column] = prt_y - move
 
-                    if prt_x < x_min:
-                        move = (x_min - prt_x) + margin
-                        data_block[particle][x_column] = prt_x + move
+            if prt_x < x_min:
+                move = (x_min - prt_x) + margin
+                data_block[particle][x_column] = prt_x + move
 
-                    if prt_y < y_min:
-                        move = (y_min - prt_y) + margin
-                        data_block[particle][y_column] = prt_y + move
+            if prt_y < y_min:
+                move = (y_min - prt_y) + margin
+                data_block[particle][y_column] = prt_y + move
             
             if checks > max_cicles:
                 print('This particle has too many collisions')
