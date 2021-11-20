@@ -21,7 +21,7 @@ import DataHandle as dh
 #-----------------------------------------------------------------------------------------#
 Nombre='output'         # Nombre del archivo donde se exportan los datos
 
-cicles = 10
+cicles = 100
 
 # Rango entre el cual se asignará valores aleatorios a cada característica de la partícula
 # i.e. r_m=[0,5] -> todas las partículas tendran una masa aleatoria entre 0 y 5 U
