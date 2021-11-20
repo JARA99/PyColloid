@@ -8,10 +8,8 @@ MaxRadius: 0.05
 MinRadius: 0.02
 MaxX: 0.8
 MaxY: 0.8
-MaxVx: 0
-MinVx: 0
-MaxVy: 0
-MinVy: 0
+MaxV: 0
+MinV: 0
 ForceConstant: 1
 DeltaTime: 0.002
 Iterations: 30
