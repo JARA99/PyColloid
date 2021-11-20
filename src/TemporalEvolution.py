@@ -22,7 +22,7 @@ import csv
 #                                          Code                                           #
 #-----------------------------------------------------------------------------------------#
 
-def motion(n_particles):
+def motion(n_particles,data_block):
     '''
     Compute the last block of data, and prints a new one based on the equations of motion.
     '''
