@@ -21,6 +21,8 @@ import DataHandle as dh
 #-----------------------------------------------------------------------------------------#
 Nombre='output'         # Nombre del archivo donde se exportan los datos
 
+cicles = 10
+
 # Rango entre el cual se asignará valores aleatorios a cada característica de la partícula
 # i.e. r_m=[0,5] -> todas las partículas tendran una masa aleatoria entre 0 y 5 U
 
@@ -46,7 +48,7 @@ Chocando=[]
 for i in range(N):      # Crear N partículas
     iv.ini_values(i,r_m,r_q,radio,r_x,r_y,r_vx,r_vy,r_ax,r_ay, Coloides)
 
-#iv.export(Coloides,Nombre,N)    # Exportar archivo con todos los datos
+iv.export(Coloides,Nombre,N)    # Exportar archivo con todos los datos
 
 cdet.detect(Coloides,Chocando,N,radio)      # Se recorre todas las partículas para saber cuales están superpuestas
 print(Chocando)                 # Se imprime el ID de las partículas que están superpuestas
@@ -55,15 +57,26 @@ for a in Coloides:              # Se recorre la lista creada para observar las p
   print("ID=",a.ID,"rx=",a.rx,"ry=",a.ry)
 
 
-##  Probando funcionalidad de evolucion temporal
+# ##  Probando funcionalidad de evolucion temporal
 
-block = dh.getLastBlock(N)        # Guarda el ultimo bloque en una lista
+# block = dh.getLastBlock(N)        # Guarda el ultimo bloque en una lista
 
-print(block)                   # Imprime
-print('\n\n')
+# print(block)                   # Imprime
+# print('\n\n')
 
-newblock = tevo.motion(block)     # Aplica la evolucion temporal y guarda este bloque en otra lista
+# newblock = tevo.motion(block)     # Aplica la evolucion temporal y guarda este bloque en otra lista
 
-print(block)                   # Imprime
-print('\n\n')
-print(newblock)
+# print(block)                   # Imprime
+# print('\n\n')
+# print(newblock)
+
+# last_block = []
+actual_block = []
+
+for cicle in range(cicles):
+  actual_block = dh.getLastBlock(N)
+  tevo.motion(actual_block)
+  # cdet.detect(actual_block)
+  dh.putActualBlock(actual_block)
+
+
