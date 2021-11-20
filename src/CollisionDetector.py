@@ -30,7 +30,7 @@ ax_column = 8
 ay_column = 9
 
 margin = 0.001
-max_cicles = 15
+# max_cicles = 15
 
 #-----------------------------------------------------------------------------------------#
 #                                          Code                                           #
@@ -45,7 +45,7 @@ def detect(Lista,Lista_out,N,delta):
                 # y se detiene una vez detecte al primer par de particulas colisionando
 
 
-def collisions(data_block, xborder, yborder):
+def collisions(data_block, xborder, yborder,max_cicles):
     n_particles = len(data_block)
     # last_data_block = data_block.copy()
 

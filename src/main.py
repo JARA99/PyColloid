@@ -27,13 +27,14 @@ cicles = 100
 # i.e. r_m=[0,5] -> todas las partículas tendran una masa aleatoria entre 0 y 5 U
 
 r_m =[0,1]              # rango masa
-r_x =[0,0.7]              # rango posición x
-r_y =[0,0.7]              # rango posición y
-r_vx=[0,1]              # rango velocidad x
-r_vy=[0,1]              # rango velocidad y
-r_ax=[0,1]              # rango aceleración x
-r_ay=[0,1]              # rango aceleración y
-r_q =[0,1]              # rango carga
+r_q =[-1,1]             # rango carga
+r_r =[0.04,0.06]        # rango del radio
+r_x =[0,0.7]            # rango posición x
+r_y =[0,0.6]            # rango posición y
+r_vx=[-10,10]             # rango velocidad x
+r_vy=[-10,10]             # rango velocidad y
+r_ax=[0,0]              # rango aceleración x
+r_ay=[0,0]              # rango aceleración y
 
 Coloides = []           # Lista para almacenar todas las partículas
 radio = 0.05               # Radio de cada partícula
@@ -42,41 +43,70 @@ N=10                    # Cantidad de partículas a considerar
 Chocando=[]
 
 #-----------------------------------------------------------------------------------------#
+#                                   Reading Parameters                                    #
+#-----------------------------------------------------------------------------------------#
+
+
+with open('Parameters.txt','r') as file:
+    Case = file.readline().replace('Case: ','').replace('\n','')
+    Particles = int(file.readline().replace('Particles: ',''))
+    Mass = float(file.readline().replace('Mass: ',''))
+    MaxCharge = float(file.readline().replace('MaxCharge: ',''))
+    MinCharge = float(file.readline().replace('MinCharge: ',''))
+    MaxRadius = float(file.readline().replace('MaxRadius: ',''))
+    MinRadius = float(file.readline().replace('MinRadius: ',''))
+    MaxX = float(file.readline().replace('MaxX: ',''))
+    MinX = 0
+    MaxY = float(file.readline().replace('MaxY: ',''))
+    MinY = 0
+    DeltaTime = float(file.readline().replace('DeltaTime: ',''))
+    Iterations = float(file.readline().replace('Iterations: ',''))
+    ColisionLoops = float(file.readline().replace('ColisionLoops: ',''))
+    file.close()
+
+N = Particles
+r_m =[Mass,Mass]              # rango masa
+r_q =[MinCharge,MaxCharge]    # rango carga
+r_r =[MinRadius,MaxRadius]    # rango del radio
+r_x =[MinX,MaxX]              # rango posición x
+r_y =[MinY,MaxY]              # rango posición y
+
+
+#-----------------------------------------------------------------------------------------#
 #                                          Code                                           #
 #-----------------------------------------------------------------------------------------#
 
-for i in range(N):      # Crear N partículas
-    iv.ini_values(i,r_m,r_q,radio,r_x,r_y,r_vx,r_vy,r_ax,r_ay, Coloides)
+# print(Case)
 
-iv.export(Coloides,Nombre,N)    # Exportar archivo con todos los datos
+if Case == 'LowAPF':
 
-cdet.detect(Coloides,Chocando,N,radio)      # Se recorre todas las partículas para saber cuales están superpuestas
-print(Chocando)                 # Se imprime el ID de las partículas que están superpuestas
+  print('Case: LowAPF')
 
-for a in Coloides:              # Se recorre la lista creada para observar las posiciones que tienen
-  print("ID=",a.ID,"rx=",a.rx,"ry=",a.ry)
+  for i in range(N):      # Crear N partículas
+      iv.ini_values(i,r_m,r_q,r_r,r_x,r_y,r_vx,r_vy,r_ax,r_ay, Coloides)
+
+  iv.export(Coloides,Nombre,N)    # Exportar archivo con todos los datos
+
+  # cdet.detect(Coloides,Chocando,N,radio)      # Se recorre todas las partículas para saber cuales están superpuestas
+  # print(Chocando)                 # Se imprime el ID de las partículas que están superpuestas
+
+  # for a in Coloides:              # Se recorre la lista creada para observar las posiciones que tienen
+  #   print("ID=",a.ID,"rx=",a.rx,"ry=",a.ry)
+
+elif Case == 'HighAPF':
+    print('Case: HighAPF')
+
+else:
+  print('Possible cases are: HighAPF or LowAPF')
 
 
-# ##  Probando funcionalidad de evolucion temporal
 
-# block = dh.getLastBlock(N)        # Guarda el ultimo bloque en una lista
-
-# print(block)                   # Imprime
-# print('\n\n')
-
-# newblock = tevo.motion(block)     # Aplica la evolucion temporal y guarda este bloque en otra lista
-
-# print(block)                   # Imprime
-# print('\n\n')
-# print(newblock)
-
-# last_block = []
 actual_block = []
 
 for cicle in range(cicles):
   actual_block = dh.getLastBlock(N)
   tevo.motion(actual_block)
-  cdet.collisions(actual_block,r_x[1],r_y[1])
+  cdet.collisions(actual_block,r_x[1],r_y[1],ColisionLoops)
   dh.putActualBlock(actual_block)
 
 

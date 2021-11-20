@@ -1,7 +1,12 @@
-Case: HighAPF
+Case: LowAPF
 Particles: 10
 Mass: 1
-Charge: 1
-Radius: 1
-BoxX: 20
-BoxY: 20
+MaxCharge: 1
+MinCharge: -1
+MaxRadius: 0.06
+MinRadius: 0.04
+MaxX: 0.8
+MaxY: 0.8
+DeltaTime: 0.01
+Iterations: 100
+ColisionLoops: 15
