@@ -1,5 +1,5 @@
 reset
-set terminal gif enhanced font Arial 12 animate delay 10 size 640,640 
+set terminal gif enhanced font Arial 12 animate delay 15 size 640,640 
 set datafile separator ","
 set output '../output/output.gif'
 
@@ -7,8 +7,8 @@ set key autotitle columnhead
 stats 'output.csv' nooutput
 unset key
 
-set xrange [0:0.7]
-set yrange [0:0.7]
+set xrange [0:0.8]
+set yrange [0:0.8]
 set grid
 # unset tics
 
@@ -24,11 +24,11 @@ set multiplot layout 1,2
 
 # set size 0.5,0.5
 # set origin 0,0
-set title 'Start'
+set title 'Distribución inicial'
 plot 'output.csv' every :::1::1 using 5:6 with circles #t 'Start'
 
 # set size 0.5,0.5
 # set origin 0.5,0
-set title 'End'
+set title 'Distribución final'
 plot 'output.csv' every :::int(STATS_blank)::int(STATS_blank) using 5:6 with circles #t 'Stop'
 unset multiplot
