@@ -66,7 +66,7 @@ with open('Parameters.txt','r') as file:
     Iterations = int(file.readline().replace('Iterations: ',''))
     CollisionLoops = float(file.readline().replace('CollisionLoops: ',''))
     Palette = file.readline().replace('Palette: ','').replace('\n','')
-    Invert = bool(file.readline().replace('Invert: ',''))
+    InvertPalette = bool(file.readline().replace('Invert: ',''))
     file.close()
 
 N = Particles

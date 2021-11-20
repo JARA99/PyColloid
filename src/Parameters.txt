@@ -1,5 +1,5 @@
 Case: HighAPF
-APF: 0.7
+APF: -1
 Particles: 64
 Mass: 1
 MaxCharge: 1
