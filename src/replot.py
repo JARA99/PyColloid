@@ -10,12 +10,12 @@
 #                                        Packages                                         #
 #-----------------------------------------------------------------------------------------#
 
-from math import pi
-import InitialValues as iv
-import TemporalEvolution as tevo
-import CollisionDetector as cdet
+# from math import pi
+# import InitialValues as iv
+# import TemporalEvolution as tevo
+# import CollisionDetector as cdet
 # import CollisionDynamics
-import DataHandle as dh
+# import DataHandle as dh
 import GetParameters as gpar
 
 #-----------------------------------------------------------------------------------------#
@@ -71,9 +71,9 @@ with open('../Parameters.txt','r') as file:
     file.close()
 
 if InvertPalette == 'True':
-  InvertPalette = True
+    InvertPalette = True
 else:
-  InvertPalette = False
+    InvertPalette = False
 
 N = Particles
 r_m =[Mass,Mass]              # rango masa
@@ -88,51 +88,7 @@ cicles = Iterations
 #                                          Code                                           #
 #-----------------------------------------------------------------------------------------#
 
-Particle_Area = pi*((MaxRadius+MinRadius)/2)**2
-Apf_per_particle = Particle_Area/(MaxX*MaxY)
-
-if Apf > 0:
-  N = int(Apf/Apf_per_particle)
-  print('Automatic particle number based on APF: ',N)
-
-
-# print(Case)
-
-if Case == 'LowAPF':
-
-  print('Case: LowAPF')
-
-  for i in range(N):      # Crear N partículas
-      iv.LowAPF(i,r_m,r_q,r_r,r_x,r_y,r_vx,r_vy,r_ax,r_ay, Coloides)
-
-  iv.export(Coloides,Nombre,N)    # Exportar archivo con todos los datos
-
-  # cdet.detect(Coloides,Chocando,N,radio)      # Se recorre todas las partículas para saber cuales están superpuestas
-  # print(Chocando)                 # Se imprime el ID de las partículas que están superpuestas
-
-  # for a in Coloides:              # Se recorre la lista creada para observar las posiciones que tienen
-  #   print("ID=",a.ID,"rx=",a.rx,"ry=",a.ry)
-
-elif Case == 'HighAPF':
-    print('Case: HighAPF')
-    cicles -= 1
-
-    iv.HighAPF(N,r_m,r_q,r_r,r_x,r_y,r_vx,r_vy,r_ax,r_ay)
-
-    # iv.export(Coloides,Nombre,N)
-
-else:
-  print('Possible cases are: HighAPF or LowAPF')
-
-
-
-actual_block = []
-
-for cicle in range(cicles):
-  actual_block = dh.getLastBlock(N)
-  tevo.motion(actual_block,DeltaTime,ForceConstant)
-  cdet.collisions(actual_block,r_x[1],r_y[1],CollisionLoops)
-  dh.putActualBlock(actual_block)
-
+# print(InvertPalette)
 
 gpar.AutoGnuplot(MaxX,MaxY,Palette,InvertPalette)
+

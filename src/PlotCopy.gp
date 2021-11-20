@@ -1,9 +1,9 @@
 reset
 
-load 'gnuplot-palettes/brbg.pal'
-set palette negative
+load 'gnuplot-palettes/viridis.pal'
+set palette positive
 
-set terminal gif enhanced font Arial 12 animate delay 15 size 750,640 
+set terminal gif enhanced font Arial 12 animate delay 15 size 752,640
 set datafile separator ","
 set output '../output/output.gif'
 
@@ -20,7 +20,7 @@ do for [i=2:int(STATS_blank)] {
     plot 'output.csv' every :::i::i using 5:6:4:3 with circles fs solid lc palette
 }
 
-set terminal png enhanced font Arial 12 size 1000,440
+set terminal png enhanced font Arial 12 size 1504,640
 set output '../output/output.png'
 
 set multiplot layout 1,2

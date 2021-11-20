@@ -1,4 +1,5 @@
-Case: LowAPF
+Case: HighAPF
+APF: -1
 Particles: 10
 Mass: 1
 MaxCharge: 1
@@ -11,3 +12,5 @@ ForceConstant: 1
 DeltaTime: 0.01
 Iterations: 100
 CollisionLoops: 30
+Palette: viridis
+Invert: False
