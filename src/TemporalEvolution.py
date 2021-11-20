@@ -28,7 +28,7 @@ ax_column = 8
 ay_column = 9
 
 k = 1
-dt = 0.01
+# dt = 0.01
 
 dec = 2 ##Decimals on aproximations
 
@@ -36,7 +36,7 @@ dec = 2 ##Decimals on aproximations
 #                                          Code                                           #
 #-----------------------------------------------------------------------------------------#
 
-def motion(data_block):
+def motion(data_block,dt):
     '''
     Compute the last block of data, and prints a new one based on the equations of motion.
     '''

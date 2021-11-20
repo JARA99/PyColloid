@@ -60,7 +60,7 @@ with open('Parameters.txt','r') as file:
     MaxY = float(file.readline().replace('MaxY: ',''))
     MinY = 0
     DeltaTime = float(file.readline().replace('DeltaTime: ',''))
-    Iterations = float(file.readline().replace('Iterations: ',''))
+    Iterations = int(file.readline().replace('Iterations: ',''))
     ColisionLoops = float(file.readline().replace('ColisionLoops: ',''))
     file.close()
 
@@ -71,6 +71,7 @@ r_r =[MinRadius,MaxRadius]    # rango del radio
 r_x =[MinX,MaxX]              # rango posición x
 r_y =[MinY,MaxY]              # rango posición y
 
+cicles = Iterations
 
 #-----------------------------------------------------------------------------------------#
 #                                          Code                                           #
@@ -105,7 +106,7 @@ actual_block = []
 
 for cicle in range(cicles):
   actual_block = dh.getLastBlock(N)
-  tevo.motion(actual_block)
+  tevo.motion(actual_block,DeltaTime)
   cdet.collisions(actual_block,r_x[1],r_y[1],ColisionLoops)
   dh.putActualBlock(actual_block)
 
