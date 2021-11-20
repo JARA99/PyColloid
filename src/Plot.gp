@@ -1,5 +1,6 @@
 reset
 
+set size ratio -1
 load 'gnuplot-palettes/brbg.pal'
 set palette negative
 

@@ -1,7 +1,8 @@
 reset
 
-load 'gnuplot-palettes/viridis.pal'
-set palette positive
+set size ratio -1
+load 'gnuplot-palettes/spectral.pal'
+set palette negative
 
 set terminal gif enhanced font Arial 12 animate delay 15 size 752,640
 set datafile separator ","

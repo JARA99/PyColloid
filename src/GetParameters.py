@@ -48,24 +48,24 @@ def AutoGnuplot(MaxX,MaxY,Palette,InvertPalette):
         GPlist = GPfile.readlines()
         # print(GPlist[2])
 
-        GPlist[2] = "load 'gnuplot-palettes/" + Palette + ".pal'\n"
+        GPlist[3] = "load 'gnuplot-palettes/" + Palette + ".pal'\n"
         # print(GPlist[2])
 
         if InvertPalette:
-            GPlist[3] = "set palette negative\n"
+            GPlist[4] = "set palette negative\n"
             # print('Palette set negative')
         else:
-            GPlist[3] = "set palette positive\n"
+            GPlist[4] = "set palette positive\n"
         
         size_x = int(MaxX*(800+140))
         size_y = int(MaxY*(800))
 
-        GPlist[5] = "set terminal gif enhanced font Arial 12 animate delay 15 size " + str(size_x) + ',' + str(size_y) + '\n'
+        GPlist[6] = "set terminal gif enhanced font Arial 12 animate delay 15 size " + str(size_x) + ',' + str(size_y) + '\n'
 
-        GPlist[13] = "set xrange [0:" + str(MaxX) + "]\n"
-        GPlist[14] = "set yrange [0:" + str(MaxY) + "]\n"
+        GPlist[14] = "set xrange [0:" + str(MaxX) + "]\n"
+        GPlist[15] = "set yrange [0:" + str(MaxY) + "]\n"
 
-        GPlist[22] = "set terminal png enhanced font Arial 12 size " + str(2*size_x) + "," + str(size_y) + '\n'
+        GPlist[23] = "set terminal png enhanced font Arial 12 size " + str(2*size_x) + "," + str(size_y) + '\n'
 
         NewGP = open('PlotCopy.gp','w')
 
