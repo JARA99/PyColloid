@@ -42,6 +42,8 @@ You can change the parameters of the simulation by changing the [Parameters.txt]
 *   **MinRadius:** Minimum radius of each particle.
 *   **MaxX:** *x* length of the box.
 *   **MinY:** *y* length of the box.
+*   **MaxX:** Maximum initial velocity.
+*   **MinY:** Minimum initial velocity.
 *   **ForceConstant:** Parameter k used on Coulumbs law.
 *   **DeltaTime:** Time of each evolving interval.
 *   **Iterations:** Total of DeltaTime iterated.
