@@ -28,7 +28,7 @@ ax_column = 8
 ay_column = 9
 
 k = 1
-dt = 0.001
+dt = 0.01
 
 dec = 2
 

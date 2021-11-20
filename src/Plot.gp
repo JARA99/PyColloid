@@ -1,5 +1,5 @@
 reset
-set terminal gif enhanced font Arial 12 animate delay 100 size 640,480 
+set terminal gif enhanced font Arial 12 animate delay 10 size 640,480 
 set datafile separator ","
 set output '../output/output.gif'
 
