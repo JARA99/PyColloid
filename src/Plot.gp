@@ -1,5 +1,5 @@
 reset
-set terminal gif enhanced font Arial 12 animate delay 10 size 640,480 
+set terminal gif enhanced font Arial 12 animate delay 10 size 640,640 
 set datafile separator ","
 set output '../output/output.gif'
 
@@ -7,10 +7,10 @@ set key autotitle columnhead
 stats 'output.csv' nooutput
 unset key
 
-set xrange [0:1]
-set yrange [0:1]
-unset grid
-unset tics
+set xrange [0:0.7]
+set yrange [0:0.7]
+set grid
+# unset tics
 
 do for [i=1:int(STATS_blank)] {
     plot 'output.csv' every :::i::i using 5:6:4 with circles
