@@ -1,5 +1,9 @@
 #   Particles in a box
 
+A simple simulation of a group of particles in a box, with electromagnetic interactions. As an output you will get two files, a *png* with the first and last state, and a *gif* with the temporal evolution.
+
+![](output/output.gif)
+
 ##  Usage
 
 Open a new terminal on the installation directory of your choice, then clone the repository using:
