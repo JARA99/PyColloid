@@ -29,6 +29,7 @@ vy_column = 7
 ax_column = 8
 ay_column = 9
 
+margin = 0.001
 max_cicles = 15
 
 #-----------------------------------------------------------------------------------------#
@@ -49,7 +50,7 @@ def collisions(data_block):
     # last_data_block = data_block.copy()
 
     velocity_unchanged = [True]*n_particles
-    position_unfixed = [True]*n_particles
+    # position_unfixed = [True]*n_particles
 
     def pol(p1,p2):
 
@@ -60,6 +61,10 @@ def collisions(data_block):
         dx = x2-x1
         dy = y2-y1
         d = (dx**2+dy**2)**(1/2)
+
+        # print(dx)
+        # print(dy)
+        # print(d)
 
         unit_x = dx/d
         unit_y = dy/d
@@ -75,22 +80,23 @@ def collisions(data_block):
             radius = float(data_block[particle][radius_column])
 
             for i in range(n_particles):
-                if velocity_unchanged[i]:
-                    polar = pol(particle,i)
-                    d = polar[0]
-                    dmin = radius + float(data_block[i][radius_column])
+                if i != particle:
+                    if velocity_unchanged[i]:
+                        polar = pol(particle,i)
+                        d = polar[0]
+                        dmin = radius + float(data_block[i][radius_column])
 
-                    if d < dmin:
-                        particle_vx = data_block[particle][vx_column]
-                        particle_vy = data_block[particle][vy_column]
+                        if d < dmin:
+                            particle_vx = data_block[particle][vx_column]
+                            particle_vy = data_block[particle][vy_column]
 
-                        data_block[particle][vx_column] = data_block[i][vx_column]
-                        data_block[particle][vy_column] = data_block[i][vy_column]
-                        data_block[i][vx_column] = particle_vx
-                        data_block[i][vy_column] = particle_vy
+                            data_block[particle][vx_column] = data_block[i][vx_column]
+                            data_block[particle][vy_column] = data_block[i][vy_column]
+                            data_block[i][vx_column] = particle_vx
+                            data_block[i][vy_column] = particle_vy
 
-                        velocity_unchanged[particle] = False
-                        velocity_unchanged[i] = False
+                            velocity_unchanged[particle] = False
+                            velocity_unchanged[i] = False
 
 
     #################################### Change positions #####################################
@@ -106,13 +112,21 @@ def collisions(data_block):
             check = False
             checks += 1 
             for i in range(n_particles):
-                polar = pol(particle,i)
-                d = polar[0]
-                dmin = radius + float(data_block[i][radius_column])
+                if i != particle:
+                    polar = pol(particle,i)
+                    d = polar[0]
+                    unit_x = polar[1]
+                    unit_y = polar[2]
+                    dmin = radius + float(data_block[i][radius_column])
 
-                if d < dmin:
-                    check = True
+                    if d < dmin:
+                        check = True
+                        move_d = (dmin - d) + margin
+                        move_x = -move_d*unit_x
+                        move_y = -move_d*unit_y
 
+                        data_block[particle][x_column] = float(data_block[particle][x_column]) + move_x
+                        data_block[particle][y_column] = float(data_block[particle][y_column]) + move_y
             
             if checks > max_cicles:
                 print('This particle has too many collisions')
