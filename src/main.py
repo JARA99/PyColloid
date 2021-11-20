@@ -32,10 +32,9 @@ r_ax=[0,1]              # rango aceleración x
 r_ay=[0,1]              # rango aceleración y
 r_q =[0,1]              # rango carga
 
-Coloides=[]             # Lista para almacenar todas las partículas
-
+Coloides = []           # Lista para almacenar todas las partículas
+radio = 0.05               # Radio de cada partícula
 N=10                    # Cantidad de partículas a considerar
-delta_c=0.2             # diferencia dentro de la cual se considera como choque
 
 Chocando=[]
 
@@ -44,13 +43,13 @@ Chocando=[]
 #-----------------------------------------------------------------------------------------#
 
 for i in range(N):      # Crear N partículas
-    iv.ini_values(i,r_m,r_x,r_y,r_vx,r_vy,r_ax,r_ay,r_q, Coloides)
+    iv.ini_values(i,r_m,r_q,radio,r_x,r_y,r_vx,r_vy,r_ax,r_ay, Coloides)
 
-iv.export(Coloides,Nombre,N)    # Exportar archivo con todos los datos
+#iv.export(Coloides,Nombre,N)    # Exportar archivo con todos los datos
 
-cdet.detect(Coloides,Chocando,N,delta_c)      # Se recorre todas las partículas para saber cuales están superpuestas
-print("delta=",delta_c)
-print(Chocando)
+cdet.detect(Coloides,Chocando,N,radio)      # Se recorre todas las partículas para saber cuales están superpuestas
+print(Chocando)                 # Se imprime el ID de las partículas que están superpuestas
 
-for a in Coloides:             # Se recorre la lista creada para observar determinadas características
+for a in Coloides:              # Se recorre la lista creada para observar las posiciones que tienen
   print("ID=",a.ID,"rx=",a.rx,"ry=",a.ry)
+
