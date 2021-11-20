@@ -7,13 +7,13 @@ set key autotitle columnhead
 stats 'output.csv' nooutput
 unset key
 
-set xrange [0:20]
-set yrange [0:20]
+set xrange [0:1]
+set yrange [0:1]
 unset grid
 unset tics
 
 do for [i=1:int(STATS_blank)] {
-    plot 'output.csv' every :::i::i using 5:6 with circles
+    plot 'output.csv' every :::i::i using 5:6:4 with circles
 }
 
 set terminal png enhanced   font Arial 12 size 880,440
