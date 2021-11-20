@@ -62,6 +62,10 @@ def collisions(data_block, xborder, yborder,max_cicles):
         dy = y2-y1
         d = (dx**2+dy**2)**(1/2)
 
+        if d < 0.00000000001:
+            d = 0.0001
+
+
         # print(dx)
         # print(dy)
         # print(d)
@@ -180,5 +184,5 @@ def collisions(data_block, xborder, yborder,max_cicles):
                 data_block[particle][y_column] = prt_y + move
             
             if checks > max_cicles:
-                print('This particle has too many collisions')
+                print('Collision loop exceeded for this particle')
                 break

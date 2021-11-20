@@ -7,6 +7,7 @@ MaxRadius: 0.08
 MinRadius: 0.01
 MaxX: 0.8
 MaxY: 0.8
+ForceConstant: 1
 DeltaTime: 0.01
 Iterations: 100
-ColisionLoops: 30
+CollisionLoops: 30

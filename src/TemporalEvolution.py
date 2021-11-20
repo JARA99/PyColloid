@@ -27,7 +27,7 @@ vy_column = 7
 ax_column = 8
 ay_column = 9
 
-k = 1
+# k = 1e+2
 # dt = 0.01
 
 dec = 2 ##Decimals on aproximations
@@ -36,7 +36,7 @@ dec = 2 ##Decimals on aproximations
 #                                          Code                                           #
 #-----------------------------------------------------------------------------------------#
 
-def motion(data_block,dt):
+def motion(data_block,dt,k):
     '''
     Compute the last block of data, and prints a new one based on the equations of motion.
     '''
@@ -52,6 +52,9 @@ def motion(data_block,dt):
         dx = x2-x1
         dy = y2-y1
         d = (dx**2+dy**2)**(1/2)
+
+        if d < 0.00000000001:
+            d = 0.0001
 
         unit_x = dx/d
         unit_y = dy/d
