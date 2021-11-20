@@ -48,7 +48,7 @@ Chocando=[]
 #-----------------------------------------------------------------------------------------#
 
 
-with open('Parameters.txt','r') as file:
+with open('../Parameters.txt','r') as file:
     Case = file.readline().replace('Case: ','').replace('\n','')
     Apf = float(file.readline().replace('APF: ',''))
     Particles = int(file.readline().replace('Particles: ',''))
