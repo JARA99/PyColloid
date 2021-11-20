@@ -28,6 +28,9 @@ ax_column = 8
 ay_column = 9
 
 k = 1
+dt = 0.001
+
+dec = 2
 
 #-----------------------------------------------------------------------------------------#
 #                                          Code                                           #
@@ -91,7 +94,25 @@ def motion(data_block):
         aceleration_y = force_y/float(data_block[particle][mass_column])
 
         #   Remplaza los valores anteriores de aceleracion por los nuevos valores
-        data_block[particle][ax_column] = aceleration_x
-        data_block[particle][ay_column] = aceleration_y
+        data_block[particle][ax_column] = round(aceleration_x,dec)
+        data_block[particle][ay_column] = round(aceleration_y,dec)
+
+    for particle in range(n_particles):
+        xo = float(data_block[particle][x_column])
+        yo = float(data_block[particle][y_column])
+        vxo = float(data_block[particle][vx_column])
+        vyo = float(data_block[particle][vy_column])
+        axo = float(data_block[particle][ax_column])
+        ayo = float(data_block[particle][ay_column])
+
+        xf = xo + vxo*dt + 0.5*axo*dt**2
+        yf = yo + vyo*dt + 0.5*ayo*dt**2
+        vxf = vxo + axo*dt
+        vyf = vyo + ayo*dt
+
+        data_block[particle][x_column] = round(xf,dec)
+        data_block[particle][y_column] = round(yf,dec)
+        data_block[particle][vx_column] = round(vxf,dec)
+        data_block[particle][vy_column] = round(vyf,dec)
 
     return data_block
