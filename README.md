@@ -51,6 +51,12 @@ You can change the parameters of the simulation by changing the [Parameters.txt]
 *   **Palette:** Palette used for coloring the charge, you can use any of the ones listed [here](Palettes.png).
 *   **Invert:** Invert the palette on plot.
 
+Finally, you can change some parameters and replot without having to re-simulate by simpRly typing:
+
+```
+./RePlot.sh
+```
+
 Remember you can choose the palette of your choice from this list:
 
 ![](Palettes.png)
