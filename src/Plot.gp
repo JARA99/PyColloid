@@ -1,4 +1,8 @@
 reset
+
+load 'gnuplot-palettes/brbg.pal'
+set palette negative
+
 set terminal gif enhanced font Arial 12 animate delay 15 size 750,640 
 set datafile separator ","
 set output '../output/output.gif'
