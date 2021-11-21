@@ -57,7 +57,7 @@ You can change the parameters of the simulation by changing the [Parameters.txt]
 *   **DeltaTime:** Time of each evolving interval.
 *   **Iterations:** Total of DeltaTime iterated.
 *   **CollisionLoops:** Maximum iterations for calculating a collision.
-*   **Palette:** Palette used for coloring the charge, you can use any of the ones listed [here](Palettes.png).
+*   **Palette:** Palette used for coloring the charge, you can use any of the ones listed [here](src/gnuplot-palettes/Palettes.png).
 *   **Invert:** Invert the palette on plot.
 
 Finally, you can change some parameters and re-plot without having to re-simulate by simply typing:
@@ -68,7 +68,7 @@ Finally, you can change some parameters and re-plot without having to re-simulat
 
 Remember you can choose the palette of your choice from this list:
 
-![](Palettes.png)
+![](src/gnuplot-palettes/Palettes.png)
 
 
 <!-- Maintain the dimensions of the box in a way that the atomic packing factor doesn't go over *0.7*.[^1]
