@@ -7,7 +7,7 @@ A simple simulation of a group of particles in a box, with electromagnetic inter
 
 ## Prerequisites
 
-*   **[Python3](https://www.python.org/)** (but you can use the virtualenv provided too).
+*   **[Python3](https://www.python.org/)**
 *   **[Gnuplot](http://gnuplot.sourceforge.net/)**
 
 You will need a *bash* or other UNIX-based terminal for running the following commands. However, you can run the simulation by hand by running [``main.py``](src/main.py), and then, by running [``PlotCopy.gp``](src/PlotCopy.gp).
