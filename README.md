@@ -28,14 +28,14 @@ Then extract the source code. Open a terminal on the PyColloid folder and then j
 ./RUN.sh
 ```
 
-Optionally you can use the virtualenv provided by doing ``source venv-simulation/bin/activate`` and then executing the shell script.
+<!-- Optionally you can use the virtualenv provided by doing ``source venv-simulation/bin/activate`` and then executing the shell script. -->
 
 
 Ideally you will get a terminal output like this:
 
 ```
 Case: [Low/High]APF
-100 frames in animation sequence
+[n] frames in animation sequence
 ```
 
 But most likely you will have some: ``Collision loop exceeded for this particle``. Which means that you will have overlaps between particles in the animation. You can try minimizing this by putting a higher value on *CollisionLoops* (see the next list), but you will increase the computation time. Other method is to play with the *DeltaTime*, *MaxVo* and *ForceConstant* parameters, this will not add computation time, but change the whole simulation environment.
