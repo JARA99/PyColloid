@@ -5,6 +5,13 @@ A simple simulation of a group of particles in a box, with electromagnetic inter
 
 ![](output/output.gif)
 
+## Prerequisites
+
+*   **[Python3](https://www.python.org/)** (but you can use the virtualenv provided too).
+*   **[Gnuplot](http://gnuplot.sourceforge.net/)**
+
+You will need a *bash* or other UNIX-based terminal for running the following commands. However, you can run the simulation by hand by running [``main.py``](src/main.py), and then, by running [``PlotCopy.gp``](src/PlotCopy.gp).
+
 ##  Usage
 
 Open a new terminal on the installation directory of your choice, then clone the repository using:
@@ -79,6 +86,7 @@ Remember you can choose the palette of your choice from this list:
 
 ##  To Do
 
+- [ ] Improve collision dynamics.
 - [x] Program [InitialValues.py](src/InitialValues.py)
 - [x] Program [TemporalEvolution.py](src/TemporalEvolution.py)
 - [x] Program [CollisionDetector.py](src/CollisionDetector.py)
