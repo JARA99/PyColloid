@@ -1,4 +1,4 @@
-#   PyColloid v1.0.0. (stable)
+#   PyColloid v1.0.0.
 ##  A simple colloid simulation
 
 A simple simulation of a group of particles in a box, with electromagnetic interactions. As an output you will get two files, a *png* with the first and last state, and a *gif* with the temporal evolution.
