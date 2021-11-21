@@ -62,6 +62,8 @@ with open('../Parameters.txt','r') as file:
     MinX = 0
     MaxY = float(file.readline().replace('MaxY: ',''))
     MinY = 0
+    MaxV = float(file.readline().replace('MaxVo: ',''))
+    # MinV = float(file.readline().replace('MinV: ',''))
     ForceConstant = float(file.readline().replace('ForceConstant: ',''))
     DeltaTime = float(file.readline().replace('DeltaTime: ',''))
     Iterations = int(file.readline().replace('Iterations: ',''))
@@ -90,5 +92,5 @@ cicles = Iterations
 
 # print(InvertPalette)
 
-gpar.AutoGnuplot(MaxX,MaxY,Palette,InvertPalette)
+gpar.AutoGnuplot(MaxX,MaxY,Palette,InvertPalette,DeltaTime)
 
