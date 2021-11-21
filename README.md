@@ -66,6 +66,10 @@ Finally, you can change some parameters and re-plot without having to re-simulat
 ./RePlot.sh
 ```
 
+---
+
+##  Palettes
+
 Remember you can choose the palette of your choice from this list:
 
 ![](src/gnuplot-palettes/Palettes.png)
@@ -75,7 +79,7 @@ Remember you can choose the palette of your choice from this list:
 
 [^1]: Consult [this article](https://en.wikipedia.org/wiki/Atomic_packing_factor) for more information on *APF*. -->
 
-
+---
 
 ##  To Do
 
