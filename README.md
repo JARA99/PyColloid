@@ -14,34 +14,27 @@ You will need a *bash* or other UNIX-based terminal for running the following co
 
 ##  Usage
 
-Open a new terminal on the installation directory of your choice, then clone the repository using:
- 
-```
-git clone
-```
+Download the latest release from [releases](https://github.com/JARA99/PyColloid/releases).
 
-Then go to the project folder and follow the execution instructions.
+<!-- Then go to the project folder and follow the execution instructions.
 
 ```
 cd PyColloid
-```
+``` -->
 
-You can use the virtualenv provided by doing:
-
-```
-source venv-simulation/bin/activate
-```
-
-For executing the simulation just execute the shell script ``RUN.sh`` by typing:
+Then extract the source code. Open a terminal on the PyColloid folder and then just execute the shell script [``RUN.sh``](RUN.sh) by typing:
 
 ```
 ./RUN.sh
 ```
 
+Optionally you can use the virtualenv provided by doing ``source venv-simulation/bin/activate`` and then executing the shell script.
+
+
 Ideally you will get a terminal output like this:
 
 ```
-Case: LowAPF
+Case: [Low/High]APF
 100 frames in animation sequence
 ```
 
