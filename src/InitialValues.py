@@ -19,6 +19,7 @@ import math
 #-----------------------------------------------------------------------------------------#
 
 margin = 0
+dec = 40
 
 #-----------------------------------------------------------------------------------------#
 #                                          Code                                           #
@@ -48,15 +49,15 @@ class coloide:  # Clase para las partículas
 #-----------------------------------------------------------------------------------------#
 
 def LowAPF(i,m,q,r,x,y,vx,vy,ax,ay,Lista):   # Función para asignar valores random en un rango dado
-    mas= round(rd.uniform(m[0],m[1]),2)
-    car= round(rd.uniform(q[0],q[1]),2)
-    r  = round(rd.uniform(r[0],r[1]),2)
-    rx = round(rd.uniform(x[0],x[1]),2)
-    ry = round(rd.uniform(y[0],y[1]),2)
-    vx = round(rd.uniform(vx[0],vx[1]),2)
-    vy = round(rd.uniform(vy[0],vy[1]),2)
-    ax = round(rd.uniform(ax[0],ax[1]),2)
-    ay = round(rd.uniform(ay[0],ay[1]),2)
+    mas= round(rd.uniform(m[0],m[1]),dec)
+    car= round(rd.uniform(q[0],q[1]),dec)
+    r  = round(rd.uniform(r[0],r[1]),dec)
+    rx = round(rd.uniform(x[0],x[1]),dec)
+    ry = round(rd.uniform(y[0],y[1]),dec)
+    vx = round(rd.uniform(vx[0],vx[1]),dec)
+    vy = round(rd.uniform(vy[0],vy[1]),dec)
+    ax = round(rd.uniform(ax[0],ax[1]),dec)
+    ay = round(rd.uniform(ay[0],ay[1]),dec)
     Lista.append(coloide(i, mas, car, r, rx, ry, vx, vy, ax, ay))
 
 def export(Lista,nombre,N):   # Función para crear un archivo .csv con toda la información de las particulas dadas
@@ -105,15 +106,15 @@ def HighAPF(n_particles,r_m,r_q,r_r,r_x,r_y,r_vx,r_vy,r_ax,r_ay):
     particles = []
 
     for particle in range(n_particles):
-        mass= round(rd.uniform(r_m[0],r_m[1]),2)
-        charge = round(rd.uniform(r_q[0],r_q[1]),2)
-        rad  = round(rd.uniform(r_r[0],r_r[1]),2)
+        mass= round(rd.uniform(r_m[0],r_m[1]),dec)
+        charge = round(rd.uniform(r_q[0],r_q[1]),dec)
+        rad  = round(rd.uniform(r_r[0],r_r[1]),dec)
         rx = points[particle][0]
         ry = points[particle][1]
-        vx = round(rd.uniform(r_vx[0],r_vx[1]),2)
-        vy = round(rd.uniform(r_vy[0],r_vy[1]),2)
-        ax = round(rd.uniform(r_ax[0],r_ax[1]),2)
-        ay = round(rd.uniform(r_ay[0],r_ay[1]),2)
+        vx = round(rd.uniform(r_vx[0],r_vx[1]),dec)
+        vy = round(rd.uniform(r_vy[0],r_vy[1]),dec)
+        ax = round(rd.uniform(r_ax[0],r_ax[1]),dec)
+        ay = round(rd.uniform(r_ay[0],r_ay[1]),dec)
         particles.append([particle, mass, charge, rad, rx, ry, vx, vy, ax, ay])
 
     with open('output.csv','w',newline='') as file:

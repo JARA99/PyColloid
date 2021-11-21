@@ -41,8 +41,13 @@
 # print(Case,Particles,Mass)
 
 
-def AutoGnuplot(MaxX,MaxY,Palette,InvertPalette):
+def AutoGnuplot(MaxX,MaxY,Palette,InvertPalette,DeltaTime):
     '''Automatic change of parameters on Gnuplot'''
+
+    dt = int(DeltaTime*100)
+
+    # if dt <= 0:
+    #     dt = 1
 
     with open('Plot.gp','r') as GPfile:
         GPlist = GPfile.readlines()
@@ -60,7 +65,7 @@ def AutoGnuplot(MaxX,MaxY,Palette,InvertPalette):
         size_x = int(MaxX*(800+140))
         size_y = int(MaxY*(800))
 
-        GPlist[6] = "set terminal gif enhanced font Arial 12 animate delay 15 size " + str(size_x) + ',' + str(size_y) + '\n'
+        GPlist[6] = "set terminal gif enhanced font Arial 12 animate delay " + str(dt) + " size " + str(size_x) + ',' + str(size_y) + '\n'
 
         GPlist[14] = "set xrange [0:" + str(MaxX) + "]\n"
         GPlist[15] = "set yrange [0:" + str(MaxY) + "]\n"

@@ -30,7 +30,7 @@ ay_column = 9
 # k = 1e+2
 # dt = 0.01
 
-dec = 2 ##Decimals on aproximations
+dec = 40 ##Decimals on aproximations
 
 #-----------------------------------------------------------------------------------------#
 #                                          Code                                           #

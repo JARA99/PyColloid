@@ -62,8 +62,8 @@ with open('../Parameters.txt','r') as file:
     MinX = 0
     MaxY = float(file.readline().replace('MaxY: ',''))
     MinY = 0
-    MaxV = float(file.readline().replace('MaxV: ',''))
-    MinV = float(file.readline().replace('MinV: ',''))
+    MaxV = float(file.readline().replace('MaxVo: ',''))
+    # MinV = float(file.readline().replace('MinV: ',''))
     ForceConstant = float(file.readline().replace('ForceConstant: ',''))
     DeltaTime = float(file.readline().replace('DeltaTime: ',''))
     Iterations = int(file.readline().replace('Iterations: ',''))
@@ -83,8 +83,8 @@ r_q =[MinCharge,MaxCharge]    # rango carga
 r_r =[MinRadius,MaxRadius]    # rango del radio
 r_x =[MinX,MaxX]              # rango posición x
 r_y =[MinY,MaxY]              # rango posición y
-r_vx=[MinV,MaxV]             # rango velocidad x
-r_vy=[MinV,MaxV]             # rango velocidad y
+r_vx=[-MaxV,MaxV]             # rango velocidad x
+r_vy=[-MaxV,MaxV]             # rango velocidad y
 
 cicles = Iterations
 
@@ -139,4 +139,4 @@ for cicle in range(cicles):
   dh.putActualBlock(actual_block)
 
 
-gpar.AutoGnuplot(MaxX,MaxY,Palette,InvertPalette)
+gpar.AutoGnuplot(MaxX,MaxY,Palette,InvertPalette,DeltaTime)

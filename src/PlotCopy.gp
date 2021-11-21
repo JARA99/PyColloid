@@ -1,10 +1,10 @@
 reset
 
 set size ratio -1
-load 'gnuplot-palettes/spectral.pal'
-set palette negative
+load 'gnuplot-palettes/paired.pal'
+set palette positive
 
-set terminal gif enhanced font Arial 12 animate delay 15 size 752,640
+set terminal gif enhanced font Arial 12 animate delay 1 size 752,640
 set datafile separator ","
 set output '../output/output.gif'
 
