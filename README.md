@@ -1,4 +1,5 @@
-#   Particles in a box
+#   PyColloid v1.0.0. (stable)
+##  A simple colloid simulation
 
 A simple simulation of a group of particles in a box, with electromagnetic interactions. As an output you will get two files, a *png* with the first and last state, and a *gif* with the temporal evolution.
 
@@ -30,6 +31,15 @@ For executing the simulation just execute the shell script ``RUN.sh`` by typing:
 ./RUN.sh
 ```
 
+Ideally you will get a terminal output like this:
+
+```
+Case: LowAPF
+100 frames in animation sequence
+```
+
+But most likely you will have some: ``Collision loop exceeded for this particle``. Which means that you will have overlaps between particles in the animation. You can try minimizing this by putting a higher value on *CollisionLoops* (see the next list), but you will increase the computation time. Other method is to play with the *DeltaTime*, *MaxVo* and *ForceConstant* parameters, this will not add computation time, but change the whole simulation environment.
+
 You can change the parameters of the simulation by changing the [Parameters.txt](Parameters.txt) file. This file its by itself very self-explanatory but here is a bit of documentation:
 
 *   **Case:** Select the method of sorting the initial state by choosing the scenario *HighAPF* (high atomic packing factor), or *LowAPF* (low atomic packing factor).
@@ -42,9 +52,8 @@ You can change the parameters of the simulation by changing the [Parameters.txt]
 *   **MinRadius:** Minimum radius of each particle.
 *   **MaxX:** *x* length of the box.
 *   **MinY:** *y* length of the box.
-*   **MaxX:** Maximum initial velocity.
-*   **MinY:** Minimum initial velocity.
-*   **ForceConstant:** Parameter k used on Coulumbs law.
+*   **MaxVo:** Maximum initial velocity in any direction for the particles.
+*   **ForceConstant:** Parameter k used on Coulumb's law.
 *   **DeltaTime:** Time of each evolving interval.
 *   **Iterations:** Total of DeltaTime iterated.
 *   **CollisionLoops:** Maximum iterations for calculating a collision.
